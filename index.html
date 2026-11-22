@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medication Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Medication Management System</h1>
+        <p>Old Age Home Management Portal</p>
+    </header>
+
+    <nav>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#residents">Residents</a>
+        <a href="#medicines">Medicines</a>
+    </nav>
+
+    <main>
+
+        <!-- Dashboard -->
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+
+            <div class="dashboard-container">
+                <div class="card">
+                    <h3>Total Residents</h3>
+                    <p id="residentCount">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Total Medicines</h3>
+                    <p id="medicineCount">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Doses Given</h3>
+                    <p id="givenCount">0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Residents -->
+        <section id="residents">
+            <h2>Resident Management</h2>
+
+            <form id="residentForm" onsubmit="addResident(event)">
+                <input type="text" id="residentName"
+                    placeholder="Resident Name" required>
+
+                <input type="number" id="residentAge"
+                    placeholder="Age" min="1" required>
+
+                <button type="submit">Add Resident</button>
+            </form>
+
+            <h3>Resident List</h3>
+            <ul id="residentList"></ul>
+        </section>
+
+        <!-- Medicines -->
+        <section id="medicines">
+            <h2>Medicine Management</h2>
+
+            <form id="medicineForm" onsubmit="addMedicine(event)">
+                <input type="text" id="medicineName"
+                    placeholder="Medicine Name" required>
+
+                <input type="text" id="medicineDosage"
+                    placeholder="Dosage (e.g. 500 mg)" required>
+
+                <button type="submit">Add Medicine</button>
+            </form>
+
+            <h3>Medicine Schedule</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Medicine</th>
+                        <th>Dosage</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="medicineList">
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Medication Management System | Old Age Home</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

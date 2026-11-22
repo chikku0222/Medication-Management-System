@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedElder Care | Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="app-shell">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">✚</div>
+            <h2>MedElder Care</h2>
+            <p>Medication Management System</p>
+        </div>
+
+        <nav>
+            <a href="#overview" class="active">▦ Dashboard</a>
+            <a href="#staff">♙ Care Staff</a>
+            <a href="#residents">♧ Residents</a>
+            <a href="#assignments">☷ Assignments</a>
+            <a href="#assign-medicines">✚ Medications</a>
+            <a href="#records">▤ Records</a>
+            <a href="#" class="logout-link" onclick="logout()">⇥ Logout</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+
+        <div class="topbar">
+            <div>
+                <h1>Admin Dashboard</h1>
+                <p>Old Age Home · Medication Management</p>
+            </div>
+            <div class="user-pill">● Administrator</div>
+        </div>
+
+        <section id="overview">
+            <div class="hero-banner">
+                <div>
+                    <h2>Safe Medication.<br>Better Care.</h2>
+                    <p>Supporting healthier, happier lives at MedElder Care.</p>
+                    <span class="hero-tag">Caring Today. Healthier Tomorrow.</span>
+                </div>
+            </div>
+
+            <h2>Dashboard Overview</h2>
+
+            <div class="dashboard-container">
+                <div class="card">
+                    <h3>Total Residents</h3>
+                    <p id="adminResidentCount">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Total Care Staff</h3>
+                    <p id="adminStaffCount">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Medication Records</h3>
+                    <p id="adminRecordCount">0</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="staff">
+            <h2>Care Staff Management</h2>
+
+            <h3>Create Care Staff Account</h3>
+            <form id="staffForm">
+                <input type="text" id="staffName"
+                    placeholder="Staff Full Name" required>
+
+                <input type="text" id="staffUsername"
+                    placeholder="Create Username" required>
+
+                <input type="password" id="staffPassword"
+                    placeholder="Create Password" required>
+
+                <button type="submit">Create Staff Account</button>
+            </form>
+
+            <h3>Registered Care Staff</h3>
+            <ul id="adminStaffList"></ul>
+        </section>
+
+        <section id="residents">
+            <h2>Resident Management</h2>
+
+            <h3>Register New Resident</h3>
+            <form id="adminResidentForm">
+                <input type="text" id="adminResidentName"
+                    placeholder="Resident Full Name" required>
+
+                <input type="number" id="adminResidentAge"
+                    placeholder="Resident Age" min="1" max="120" required>
+
+                <button type="submit">Register Resident</button>
+            </form>
+
+            <h3>Registered Residents</h3>
+            <ul id="adminResidentList"></ul>
+        </section>
+
+        <section id="assignments">
+            <h2>Resident Assignment</h2>
+            <p>Assign residents to their responsible Care Staff members.</p>
+
+            <form id="assignmentForm">
+                <select id="assignmentResident" required>
+                    <option value="">Select Resident</option>
+                </select>
+
+                <select id="assignmentStaff" required>
+                    <option value="">Select Care Staff</option>
+                </select>
+
+                <button type="submit">Assign Resident</button>
+            </form>
+
+            <h3>Current Assignments</h3>
+            <div id="adminAssignmentList"></div>
+        </section>
+
+        <section id="assign-medicines">
+            <h2>Assign Medication to Resident</h2>
+
+            <form id="residentMedicineForm">
+                <select id="medicineResident" required>
+                    <option value="">Select Resident</option>
+                </select>
+
+                <input type="text" id="assignedMedicineName"
+                    placeholder="Medicine Name" required>
+
+                <input type="text" id="assignedMedicineDosage"
+                    placeholder="Dosage (e.g. 1 tablet)" required>
+
+                <select id="assignedMedicineTime" required>
+                    <option value="">Select Medication Time</option>
+                    <option value="Morning">Morning</option>
+                    <option value="Afternoon">Afternoon</option>
+                    <option value="Evening">Evening</option>
+                    <option value="Night">Night</option>
+                </select>
+
+                <button type="submit">Assign Medicine</button>
+            </form>
+
+            <h3>Assigned Medication List</h3>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Resident</th>
+                            <th>Medicine</th>
+                            <th>Dosage</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="assignedMedicineList"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="records">
+            <h2>Medication Administration Records</h2>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Resident</th>
+                            <th>Medicine</th>
+                            <th>Action</th>
+                            <th>Reason</th>
+                            <th>Responsible Staff</th>
+                            <th>Date and Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminMedicationRecords"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>MedElder Care | Medication Management System</p>
+            <p>Caring Today. Healthier Tomorrow. ♥</p>
+        </footer>
+
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
